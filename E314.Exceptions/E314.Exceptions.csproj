@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>disable</Nullable>
+        <LangVersion>9</LangVersion>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Title>E314.Exceptions</Title>
+        <Authors>Maksim Epishev (epishev.m@mail.ru)</Authors>
+        <Copyright>Copyright (c) 2025 Maksim Epishev (epishev.m@mail.ru)</Copyright>
+        <RepositoryType>Git</RepositoryType>
+        <Version>1.0.0</Version>
+        <PackageId>E314.Exceptions</PackageId>
+        <RepositoryUrl>https://github.com/epishev-m/e314-exceptions.git</RepositoryUrl>
+        <Description>The E314.Exceptions module ...</Description>
+        <PackageProjectUrl>https://github.com/epishev-m/e314-exceptions</PackageProjectUrl>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageTags>contracts requires args arg unity</PackageTags>
+        <PackageReleaseNotes></PackageReleaseNotes>
+        <AssemblyName>E314.Exceptions</AssemblyName>
+        <RootNamespace>E314.Exceptions</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\E314.Exceptions.Upm\Packages\com.e314.exceptions\README.md" Pack="true" PackagePath="\" />
+        <None Include="..\LICENSE" Pack="true" PackagePath="\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="..\E314.Exceptions.Upm\Packages\com.e314.exceptions\Runtime\">
+        <Link>Runtime</Link>
+      </Folder>
+    </ItemGroup>
+
+</Project>
