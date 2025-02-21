@@ -17,6 +17,9 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Compile Include="..\E314.Exceptions.Upm\Packages\com.e314.exceptions\Tests\DetailedArgExceptionTests.cs">
+        <Link>Tests\DetailedArgExceptionTests.cs</Link>
+      </Compile>
       <Compile Include="..\E314.Exceptions.Upm\Packages\com.e314.exceptions\Tests\DetailedExceptionTests.cs">
         <Link>Tests\DetailedExceptionTests.cs</Link>
       </Compile>
