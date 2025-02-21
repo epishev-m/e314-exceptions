@@ -51,7 +51,7 @@ public void SetPlayerName(string name)
 {
     if (string.IsNullOrEmpty(name))
     {
-        throw new DetailedArgNullException(nameof(name));
+        throw new ArgNullException(nameof(name));
     }
     // ...
 }
@@ -60,7 +60,7 @@ public void SetHealth(int health)
 {
     if (health < 0 || health > 100)
     {
-        throw new DetailedArgOutOfRangeException(
+        throw new ArgOutOfRangeException(
             nameof(health),
             health,
             "Health must be between 0 and 100.",
@@ -84,7 +84,7 @@ public void PerformAction()
 {
     if (!_isInitialized)
     {
-        throw new DetailedInvalidOperationException(
+        throw new InvOpException(
             "Object must be initialized before use.",
             errorCode: "INIT_REQUIRED",
             errorData: new { IsInitialized = _isInitialized });
@@ -105,14 +105,14 @@ public void ProcessOrder(Order order)
 {
     if (order == null)
     {
-        throw new DetailedArgNullException(
+        throw new ArgNullException(
             nameof(order),
             errorData: new { Context = "Order processing", Timestamp = DateTime.UtcNow });
     }
 
     if (!order.IsValid())
     {
-        throw new DetailedInvalidOperationException(
+        throw new InvOpException(
             "Order is not valid.",
             errorCode: "ORDER_INVALID",
             errorData: new { OrderId = order.Id, Status = order.Status });
@@ -156,6 +156,6 @@ catch (DetailedException ex)
 - Automatic error location tracking:
   - Use attributes `[CallerFilePath]`, `[CallerMemberName]`, and `[CallerLineNumber]` to automatically capture where the error occurred.
 - Specialized exceptions:
-  - Use classes like `DetailedArgNullException`, `DetailedArgOutOfRangeException`, and `DetailedInvalidOperationException` for common scenarios. This makes the code more readable and understandable.
+  - Use classes like `ArgNullException`, `ArgOutOfRangeException`, and `InvOpException` for common scenarios. This makes the code more readable and understandable.
 - Logging:
   - Always log errors using all available data (`Message`, `ErrorCode`, `ErrorData`, `FileName`, `MethodName`, `LineNumber`).

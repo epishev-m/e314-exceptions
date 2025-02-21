@@ -90,21 +90,6 @@ public class DetailedException : Exception
 	}
 
 	/// <summary>
-	/// Initializes a new instance of the <see cref="DetailedArgNullException"/> class with serialized data.
-	/// </summary>
-	/// <param name="info">The <see cref="SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
-	/// <param name="context">The <see cref="StreamingContext"/> that contains contextual information about the source or destination.</param>
-	protected DetailedException(SerializationInfo info, StreamingContext context)
-		: base(info, context)
-	{
-		ErrorCode = info.GetString(nameof(ErrorCode));
-		ErrorData = info.GetValue(nameof(ErrorData), typeof(object));
-		FileName = info.GetString(nameof(FileName));
-		MethodName = info.GetString(nameof(MethodName));
-		LineNumber = info.GetInt32(nameof(LineNumber));
-	}
-
-	/// <summary>
 	/// Gets the data object for serialization.
 	/// </summary>
 	public override void GetObjectData(SerializationInfo info, StreamingContext context)
@@ -130,6 +115,21 @@ public class DetailedException : Exception
 			.AppendLine($"\nLine: {LineNumber}")
 			.AppendLine($"\nStack Trace: {StackTrace ?? "N/A"}")
 			.ToString();
+	}
+
+	/// <summary>
+	/// Initializes a new instance of the <see cref="DetailedException"/> class with serialized data.
+	/// </summary>
+	/// <param name="info">The <see cref="SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
+	/// <param name="context">The <see cref="StreamingContext"/> that contains contextual information about the source or destination.</param>
+	protected DetailedException(SerializationInfo info, StreamingContext context)
+		: base(info, context)
+	{
+		ErrorCode = info.GetString(nameof(ErrorCode));
+		ErrorData = info.GetValue(nameof(ErrorData), typeof(object));
+		FileName = info.GetString(nameof(FileName));
+		MethodName = info.GetString(nameof(MethodName));
+		LineNumber = info.GetInt32(nameof(LineNumber));
 	}
 }
 

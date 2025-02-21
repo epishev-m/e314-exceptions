@@ -5,22 +5,24 @@ namespace E314.Exceptions.Tests
 {
 
 [TestFixture]
-internal sealed class DetailedArgExceptionTests
+internal sealed class ArgOutOfRangeExceptionTests
 {
 	private const string TestParamName = "testParam";
-	private const string TestMessage = "Test error message.";
-	private const string TestErrorCode = "TEST_ERROR_CODE";
+	private const int TestActualValue = 150;
+	private const string TestMessage = "Specified argument was out of the range of valid values.";
+	private const string TestErrorCode = "ARG_OUT_OF_RANGE";
 	private const string TestFileName = "TestFile.cs";
 	private const string TestMethodName = "TestMethod";
 	private const int TestLineNumber = 42;
-	private readonly object _testErrorData = new { Key = "Value" };
+	private readonly object _testErrorData = new { MinValue = 0, MaxValue = 100 };
 
 	[Test]
 	public void Constructor_WithAllParameters_SetsPropertiesCorrectly()
 	{
 		// Arrange & Act
-		var exception = new DetailedArgException(
+		var exception = new ArgOutOfRangeException(
 			TestParamName,
+			TestActualValue,
 			TestMessage,
 			TestErrorCode,
 			_testErrorData,
@@ -29,7 +31,9 @@ internal sealed class DetailedArgExceptionTests
 			TestLineNumber);
 
 		// Assert
-		Assert.That(exception.Message, Does.Contain(TestMessage).And.Contain(TestParamName));
+		Assert.That(exception.Message,
+			Does.Contain(TestMessage).And.Contain(TestParamName).And
+				.Contain(TestActualValue.ToString()));
 		Assert.That(exception.ErrorCode, Is.EqualTo(TestErrorCode));
 		Assert.That(exception.ErrorData, Is.EqualTo(_testErrorData));
 		Assert.That(exception.FileName, Is.EqualTo(TestFileName));
@@ -41,12 +45,13 @@ internal sealed class DetailedArgExceptionTests
 	public void Constructor_WithDefaultValues_SetsPropertiesCorrectly()
 	{
 		// Arrange & Act
-		var exception = new DetailedArgException(TestParamName);
+		var exception = new ArgOutOfRangeException(TestParamName, TestActualValue);
 
 		// Assert
 		Assert.That(exception.Message,
-			Does.Contain("Value cannot be null.").And.Contain(TestParamName));
-		Assert.That(exception.ErrorCode, Is.EqualTo("ARG_NULL"));
+			Does.Contain("Specified argument was out of the range of valid values.").And
+				.Contain(TestParamName).And.Contain(TestActualValue.ToString()));
+		Assert.That(exception.ErrorCode, Is.EqualTo("ARG_OUT_OF_RANGE"));
 		Assert.That(exception.ErrorData, Is.Null);
 		Assert.That(exception.FileName, Is.Not.Null.And.Not.Empty);
 		Assert.That(exception.MethodName, Is.Not.Null.And.Not.Empty);
@@ -57,8 +62,9 @@ internal sealed class DetailedArgExceptionTests
 	public void Serialization_Deserialization_RestoresPropertiesCorrectly()
 	{
 		// Arrange
-		var originalException = new DetailedArgException(
+		var originalException = new ArgOutOfRangeException(
 			TestParamName,
+			TestActualValue,
 			TestMessage,
 			TestErrorCode,
 			_testErrorData,
@@ -66,15 +72,15 @@ internal sealed class DetailedArgExceptionTests
 			TestMethodName,
 			TestLineNumber);
 
-		// Act
 		string json = JsonConvert.SerializeObject(originalException);
-		var deserializedException = JsonConvert.DeserializeObject<DetailedArgException>(json);
+		var deserializedException = JsonConvert.DeserializeObject<ArgOutOfRangeException>(json);
 		string jsonErrorData = JsonConvert.SerializeObject(deserializedException.ErrorData);
 		string errorData = JsonConvert.SerializeObject(_testErrorData);
 
 		// Assert
 		Assert.That(deserializedException.Message,
-			Does.Contain(TestMessage).And.Contain(TestParamName));
+			Does.Contain(TestMessage).And.Contain(TestParamName).And
+				.Contain(TestActualValue.ToString()));
 		Assert.That(deserializedException.ErrorCode, Is.EqualTo(TestErrorCode));
 		Assert.That(jsonErrorData, Is.EqualTo(errorData));
 		Assert.That(deserializedException.FileName, Is.EqualTo(TestFileName));
@@ -86,8 +92,9 @@ internal sealed class DetailedArgExceptionTests
 	public void ToString_IncludesAllDetails()
 	{
 		// Arrange
-		var exception = new DetailedArgException(
+		var exception = new ArgOutOfRangeException(
 			TestParamName,
+			TestActualValue,
 			TestMessage,
 			TestErrorCode,
 			_testErrorData,
@@ -105,6 +112,7 @@ internal sealed class DetailedArgExceptionTests
 		Assert.That(toStringResult, Does.Contain(TestFileName));
 		Assert.That(toStringResult, Does.Contain(TestMethodName));
 		Assert.That(toStringResult, Does.Contain(TestLineNumber.ToString()));
+		Assert.That(toStringResult, Does.Contain(TestActualValue.ToString()));
 	}
 }
 

@@ -4,7 +4,7 @@ using NUnit.Framework;
 namespace E314.Exceptions.Tests
 {
     [TestFixture]
-    public class DetailedInvalidOperationExceptionTests
+    public class InvOpExceptionTests
     {
         private const string TestMessage = "Operation is not valid due to the current state of the object.";
         private const string TestErrorCode = "INVALID_OPERATION";
@@ -17,7 +17,7 @@ namespace E314.Exceptions.Tests
         public void Constructor_WithAllParameters_SetsPropertiesCorrectly()
         {
             // Arrange & Act
-            var exception = new DetailedInvalidOperationException(
+            var exception = new InvOpException(
                 TestMessage,
                 TestErrorCode,
                 _testErrorData,
@@ -38,7 +38,7 @@ namespace E314.Exceptions.Tests
         public void Constructor_WithDefaultValues_SetsPropertiesCorrectly()
         {
             // Arrange & Act
-            var exception = new DetailedInvalidOperationException();
+            var exception = new InvOpException();
 
             // Assert
             Assert.That(exception.Message, Is.EqualTo("Operation is not valid due to the current state of the object."));
@@ -53,7 +53,7 @@ namespace E314.Exceptions.Tests
         public void Serialization_Deserialization_RestoresPropertiesCorrectly()
         {
             // Arrange
-            var originalException = new DetailedInvalidOperationException(
+            var originalException = new InvOpException(
                 TestMessage,
                 TestErrorCode,
                 _testErrorData,
@@ -63,7 +63,7 @@ namespace E314.Exceptions.Tests
 
             // Act
             string json = JsonConvert.SerializeObject(originalException);
-            var deserializedException = JsonConvert.DeserializeObject<DetailedInvalidOperationException>(json);
+            var deserializedException = JsonConvert.DeserializeObject<InvOpException>(json);
             string jsonErrorData = JsonConvert.SerializeObject(deserializedException.ErrorData);
             string errorData = JsonConvert.SerializeObject(_testErrorData);
 
@@ -80,7 +80,7 @@ namespace E314.Exceptions.Tests
         public void ToString_IncludesAllDetails()
         {
             // Arrange
-            var exception = new DetailedInvalidOperationException(
+            var exception = new InvOpException(
                 TestMessage,
                 TestErrorCode,
                 _testErrorData,

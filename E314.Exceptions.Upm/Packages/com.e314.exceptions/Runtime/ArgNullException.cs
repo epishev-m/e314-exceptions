@@ -6,14 +6,14 @@ namespace E314.Exceptions
 {
 
 /// <summary>
-/// Represents an exception that provides detailed information about an argument-related error.
+/// Represents an exception that provides detailed information about a null argument error.
 /// This class extends <see cref="DetailedException"/> to include parameter-specific details.
 /// </summary>
 [Serializable]
-public class DetailedArgException : DetailedException
+public class ArgNullException : DetailedException
 {
 	/// <summary>
-	/// Initializes a new instance of the <see cref="DetailedArgException"/> class with a specified parameter name, error message, error code, and additional error data.
+	/// Initializes a new instance of the <see cref="ArgNullException"/> class with a specified parameter name, error message, error code, and additional error data.
 	/// </summary>
 	/// <param name="paramName">The name of the parameter that caused the exception.</param>
 	/// <param name="message">The error message that explains the reason for the exception. Default is "Value cannot be null.".</param>
@@ -22,7 +22,7 @@ public class DetailedArgException : DetailedException
 	/// <param name="fileName">The full path of the source file that contains the caller. Automatically populated by the runtime.</param>
 	/// <param name="methodName">The name of the method or property that invoked the exception. Automatically populated by the runtime.</param>
 	/// <param name="lineNumber">The line number in the source file at which the exception was thrown. Automatically populated by the runtime.</param>
-	public DetailedArgException(
+	public ArgNullException(
 		string paramName,
 		string message = "Value cannot be null.",
 		string errorCode = "ARG_NULL",
@@ -41,11 +41,11 @@ public class DetailedArgException : DetailedException
 	}
 
 	/// <summary>
-	/// Initializes a new instance of the <see cref="DetailedArgException"/> class with serialized data.
+	/// Initializes a new instance of the <see cref="ArgNullException"/> class with serialized data.
 	/// </summary>
 	/// <param name="info">The <see cref="SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
 	/// <param name="context">The <see cref="StreamingContext"/> that contains contextual information about the source or destination.</param>
-	protected DetailedArgException(SerializationInfo info, StreamingContext context)
+	protected ArgNullException(SerializationInfo info, StreamingContext context) 
 		: base(info, context)
 	{
 	}

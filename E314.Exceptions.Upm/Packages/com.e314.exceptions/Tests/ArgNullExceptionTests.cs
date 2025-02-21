@@ -5,7 +5,7 @@ namespace E314.Exceptions.Tests
 {
 
 [TestFixture]
-internal sealed class DetailedArgNullExceptionTests
+internal sealed class ArgNullExceptionTests
 {
 	private const string TestParamName = "testParam";
 	private const string TestMessage = "Value cannot be null.";
@@ -19,7 +19,7 @@ internal sealed class DetailedArgNullExceptionTests
 	public void Constructor_WithAllParameters_SetsPropertiesCorrectly()
 	{
 		// Arrange & Act
-		var exception = new DetailedArgNullException(
+		var exception = new ArgNullException(
 			TestParamName,
 			TestMessage,
 			TestErrorCode,
@@ -41,7 +41,7 @@ internal sealed class DetailedArgNullExceptionTests
 	public void Constructor_WithDefaultValues_SetsPropertiesCorrectly()
 	{
 		// Arrange & Act
-		var exception = new DetailedArgNullException(TestParamName);
+		var exception = new ArgNullException(TestParamName);
 
 		// Assert
 		Assert.That(exception.Message,
@@ -57,7 +57,7 @@ internal sealed class DetailedArgNullExceptionTests
 	public void Serialization_Deserialization_RestoresPropertiesCorrectly()
 	{
 		// Arrange
-		var originalException = new DetailedArgNullException(
+		var originalException = new ArgNullException(
 			TestParamName,
 			TestMessage,
 			TestErrorCode,
@@ -67,7 +67,7 @@ internal sealed class DetailedArgNullExceptionTests
 			TestLineNumber);
 
 		string json = JsonConvert.SerializeObject(originalException);
-		var deserializedException = JsonConvert.DeserializeObject<DetailedArgNullException>(json);
+		var deserializedException = JsonConvert.DeserializeObject<ArgNullException>(json);
 		string jsonErrorData = JsonConvert.SerializeObject(deserializedException.ErrorData);
 		string errorData = JsonConvert.SerializeObject(_testErrorData);
 
@@ -85,7 +85,7 @@ internal sealed class DetailedArgNullExceptionTests
 	public void ToString_IncludesAllDetails()
 	{
 		// Arrange
-		var exception = new DetailedArgNullException(
+		var exception = new ArgNullException(
 			TestParamName,
 			TestMessage,
 			TestErrorCode,
