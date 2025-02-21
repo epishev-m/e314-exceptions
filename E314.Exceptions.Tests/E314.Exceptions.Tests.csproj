@@ -23,6 +23,9 @@
       <Compile Include="..\E314.Exceptions.Upm\Packages\com.e314.exceptions\Tests\DetailedArgNullExceptionTests.cs">
         <Link>Tests\DetailedArgNullExceptionTests.cs</Link>
       </Compile>
+      <Compile Include="..\E314.Exceptions.Upm\Packages\com.e314.exceptions\Tests\DetailedArgOutOfRangeExceptionTests.cs">
+        <Link>Tests\DetailedArgOutOfRangeExceptionTests.cs</Link>
+      </Compile>
       <Compile Include="..\E314.Exceptions.Upm\Packages\com.e314.exceptions\Tests\DetailedExceptionTests.cs">
         <Link>Tests\DetailedExceptionTests.cs</Link>
       </Compile>

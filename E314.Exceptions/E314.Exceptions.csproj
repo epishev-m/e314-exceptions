@@ -34,6 +34,9 @@
       <Compile Include="..\E314.Exceptions.Upm\Packages\com.e314.exceptions\Runtime\DetailedArgNullException.cs">
         <Link>Runtime\DetailedArgNullException.cs</Link>
       </Compile>
+      <Compile Include="..\E314.Exceptions.Upm\Packages\com.e314.exceptions\Runtime\DetailedArgOutOfRangeException.cs">
+        <Link>Runtime\DetailedArgOutOfRangeException.cs</Link>
+      </Compile>
       <Compile Include="..\E314.Exceptions.Upm\Packages\com.e314.exceptions\Runtime\DetailedException.cs">
         <Link>Runtime\DetailedException.cs</Link>
       </Compile>
