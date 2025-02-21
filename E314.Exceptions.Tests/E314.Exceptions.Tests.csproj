@@ -17,9 +17,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="..\E314.Exceptions.Upm\Packages\com.e314.exceptions\Tests\">
-        <Link>Tests</Link>
-      </Folder>
+      <Compile Include="..\E314.Exceptions.Upm\Packages\com.e314.exceptions\Tests\DetailedExceptionTests.cs">
+        <Link>Tests\DetailedExceptionTests.cs</Link>
+      </Compile>
     </ItemGroup>
 
 </Project>
