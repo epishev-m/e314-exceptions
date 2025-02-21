@@ -31,6 +31,9 @@
       <Compile Include="..\E314.Exceptions.Upm\Packages\com.e314.exceptions\Runtime\DetailedArgException.cs">
         <Link>Runtime\DetailedArgException.cs</Link>
       </Compile>
+      <Compile Include="..\E314.Exceptions.Upm\Packages\com.e314.exceptions\Runtime\DetailedArgNullException.cs">
+        <Link>Runtime\DetailedArgNullException.cs</Link>
+      </Compile>
       <Compile Include="..\E314.Exceptions.Upm\Packages\com.e314.exceptions\Runtime\DetailedException.cs">
         <Link>Runtime\DetailedException.cs</Link>
       </Compile>
