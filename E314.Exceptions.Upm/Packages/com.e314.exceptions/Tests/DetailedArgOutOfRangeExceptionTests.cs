@@ -73,7 +73,7 @@ internal sealed class DetailedArgOutOfRangeExceptionTests
 			TestLineNumber);
 
 		string json = JsonConvert.SerializeObject(originalException);
-		var deserializedException = JsonConvert.DeserializeObject<DetailedException>(json);
+		var deserializedException = JsonConvert.DeserializeObject<DetailedArgOutOfRangeException>(json);
 		string jsonErrorData = JsonConvert.SerializeObject(deserializedException.ErrorData);
 		string errorData = JsonConvert.SerializeObject(_testErrorData);
 

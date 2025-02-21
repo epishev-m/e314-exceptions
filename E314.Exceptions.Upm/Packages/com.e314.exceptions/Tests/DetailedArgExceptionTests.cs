@@ -68,7 +68,7 @@ internal sealed class DetailedArgExceptionTests
 
 		// Act
 		string json = JsonConvert.SerializeObject(originalException);
-		var deserializedException = JsonConvert.DeserializeObject<DetailedException>(json);
+		var deserializedException = JsonConvert.DeserializeObject<DetailedArgException>(json);
 		string jsonErrorData = JsonConvert.SerializeObject(deserializedException.ErrorData);
 		string errorData = JsonConvert.SerializeObject(_testErrorData);
 
