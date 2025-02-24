@@ -14,6 +14,7 @@ The `E314.Exceptions` module provides enhanced exception classes that improve st
   - [How to Use the Module?](#how-to-use-the-module)
     - [Method Parameter Validation](#method-parameter-validation)
     - [Object State Validation](#object-state-validation)
+    - [Using an Object After It Has Been Disposed](#using-an-object-after-it-has-been-disposed)
     - [Handling Complex Scenarios](#handling-complex-scenarios)
     - [Logging and Diagnostics](#logging-and-diagnostics)
   - [Recommendations](#recommendations)
@@ -97,7 +98,7 @@ public void PerformAction()
 
 When to use:
 
-- Вы хотите явно указать, что объект был освобожден и не может быть использован.
+- If you want to explicitly state that the object has been released and cannot be used.
 
 ``` csharp
 public class DisposableResource : IDisposable
