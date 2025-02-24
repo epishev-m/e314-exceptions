@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [1.1.0] - 2025-02-24
+
+### Added
+
+- Added `ObjDisposedException` to handle the use of an object after it has been released.
+
 ## [1.0.0] - 2025-02-22
 
 First stable release of `E314.Exceptions`.

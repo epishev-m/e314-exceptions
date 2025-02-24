@@ -9,15 +9,15 @@
         <Authors>Maksim Epishev (epishev.m@mail.ru)</Authors>
         <Copyright>Copyright (c) 2025 Maksim Epishev (epishev.m@mail.ru)</Copyright>
         <RepositoryType>Git</RepositoryType>
-        <Version>1.0.0</Version>
+        <Version>1.1.0</Version>
         <PackageId>E314.Exceptions</PackageId>
         <RepositoryUrl>https://github.com/epishev-m/e314-exceptions.git</RepositoryUrl>
-        <Description>The E314.Exceptions module provides enhanced exception classes that improve standard error handling mechanisms in .NET. These exceptions include additional data such as a unique error code (ErrorCode), extra data (ErrorData), the file name, method name, and line number where the exception occurred. This makes debugging and logging more informative.</Description>
+        <Description>The `E314.Exceptions` module provides enhanced exception classes that improve standard error handling mechanisms in .NET. These exceptions include additional data such as a unique error code (`ErrorCode`), extra data (`ErrorData`), the file name, method name, and line number where the exception occurred. This makes debugging and logging more informative.</Description>
         <PackageProjectUrl>https://github.com/epishev-m/e314-exceptions</PackageProjectUrl>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageTags>exeprions unity</PackageTags>
-        <PackageReleaseNotes></PackageReleaseNotes>
+        <PackageReleaseNotes>Added `ObjDisposedException` to handle the use of an object after it has been released.</PackageReleaseNotes>
         <AssemblyName>E314.Exceptions</AssemblyName>
         <RootNamespace>E314.Exceptions</RootNamespace>
     </PropertyGroup>
