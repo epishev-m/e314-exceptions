@@ -93,6 +93,31 @@ public void PerformAction()
 }
 ```
 
+### Using an Object After It Has Been Disposed
+
+When to use:
+
+- Вы хотите явно указать, что объект был освобожден и не может быть использован.
+
+``` csharp
+public class DisposableResource : IDisposable
+{
+    private bool _isDisposed;
+
+    public void Dispose()
+    {
+        _isDisposed = true;
+        // ...
+    }
+
+    public void PerformAction()
+    {
+        if (_isDisposed) throw new ObjDisposedException();
+        // ...
+    }
+}
+```
+
 ### Handling Complex Scenarios
 
 When to use:
