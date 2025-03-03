@@ -1,5 +1,4 @@
 using System;
-using Newtonsoft.Json;
 using NUnit.Framework;
 
 namespace E314.Exceptions.Tests
@@ -60,33 +59,6 @@ internal sealed class DetailedExceptionTests
 		Assert.That(exception.MethodName, Is.EqualTo(TestMethodName));
 		Assert.That(exception.LineNumber, Is.EqualTo(TestLineNumber));
 		Assert.That(exception.InnerException, Is.EqualTo(innerException));
-	}
-
-	[Test]
-	public void Serialization_Deserialization_RestoresPropertiesCorrectly()
-	{
-		// Arrange
-		var originalException = new DetailedException(
-			TestMessage,
-			TestErrorCode,
-			_testErrorData,
-			TestFileName,
-			TestMethodName,
-			TestLineNumber);
-
-		// Act
-		string json = JsonConvert.SerializeObject(originalException);
-		var deserializedException = JsonConvert.DeserializeObject<DetailedException>(json);
-		string jsonErrorData = JsonConvert.SerializeObject(deserializedException.ErrorData);
-		string errorData = JsonConvert.SerializeObject(_testErrorData);
-
-		// Assert
-		Assert.That(deserializedException.Message, Is.EqualTo(TestMessage));
-		Assert.That(deserializedException.ErrorCode, Is.EqualTo(TestErrorCode));
-		Assert.That(jsonErrorData, Is.EqualTo(errorData));
-		Assert.That(deserializedException.FileName, Is.EqualTo(TestFileName));
-		Assert.That(deserializedException.MethodName, Is.EqualTo(TestMethodName));
-		Assert.That(deserializedException.LineNumber, Is.EqualTo(TestLineNumber));
 	}
 
 	[Test]

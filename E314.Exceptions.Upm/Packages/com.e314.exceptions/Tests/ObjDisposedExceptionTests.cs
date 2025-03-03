@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 using NUnit.Framework;
 
 namespace E314.Exceptions.Tests
@@ -49,33 +48,6 @@ internal sealed class ObjDisposedExceptionTests
 		Assert.That(exception.FileName, Is.Not.Null.And.Not.Empty);
 		Assert.That(exception.MethodName, Is.Not.Null.And.Not.Empty);
 		Assert.That(exception.LineNumber, Is.GreaterThan(0));
-	}
-
-	[Test]
-	public void Serialization_Deserialization_RestoresPropertiesCorrectly()
-	{
-		// Arrange
-		var originalException = new ObjDisposedException(
-			TestMessage,
-			TestErrorCode,
-			_testErrorData,
-			TestFileName,
-			TestMethodName,
-			TestLineNumber);
-
-		// Act
-		string json = JsonConvert.SerializeObject(originalException);
-		var deserializedException = JsonConvert.DeserializeObject<ObjDisposedException>(json);
-		string jsonErrorData = JsonConvert.SerializeObject(deserializedException.ErrorData);
-		string errorData = JsonConvert.SerializeObject(_testErrorData);
-
-		// Assert
-		Assert.That(deserializedException.Message, Does.Contain(TestMessage));
-		Assert.That(deserializedException.ErrorCode, Is.EqualTo(TestErrorCode));
-		Assert.That(jsonErrorData, Is.EqualTo(errorData));
-		Assert.That(deserializedException.FileName, Is.EqualTo(TestFileName));
-		Assert.That(deserializedException.MethodName, Is.EqualTo(TestMethodName));
-		Assert.That(deserializedException.LineNumber, Is.EqualTo(TestLineNumber));
 	}
 
 	[Test]
