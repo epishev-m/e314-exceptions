@@ -17,7 +17,7 @@
 ## Unity Package Manager. Git URL
 
 ```ps1
-https://github.com/epishev-m/e314-exceptions.git?path=E314.Exceptions.Upm/Packages/com.e314.exceptions/#release/1.0.0
+https://github.com/epishev-m/e314-exceptions.git?path=E314.Exceptions.Upm/Packages/com.e314.exceptions/#release/1.1.2
 ```
 
 1. Open Window → Package Manager.
@@ -36,7 +36,7 @@ https://openupm.com/packages/com.e314.exceptions.html
 4. Click Apply.
 5. Open Window → Package Manager.
 6. Click on the + button → Add package by name...
-7. Enter the Name com.e314.exceptions and Version 1.0.0.
+7. Enter the Name com.e314.exceptions and Version 1.1.2.
 8. Click Add.
 
 ## NuGet
@@ -50,5 +50,5 @@ https://www.nuget.org/packages/E314.Exceptions
 3. Run the command to install the NuGet package:
 
 ```sh
-dotnet add package E314.Exceptions -v 1.0.0
+dotnet add package E314.Exceptions -v 1.1.2
 ```
