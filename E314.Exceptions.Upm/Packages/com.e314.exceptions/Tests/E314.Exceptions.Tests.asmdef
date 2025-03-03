@@ -1,8 +1,8 @@
 {
-    "name": "EM.Exceptions.Tests",
-    "rootNamespace": "EM.Exceptions.Tests",
+    "name": "E314.Exceptions.Tests",
+    "rootNamespace": "E314.Exceptions.Tests",
     "references": [
-        "EM.Exceptions"
+        "E314.Exceptions"
     ],
     "includePlatforms": [
         "Editor"

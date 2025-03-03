@@ -1,6 +1,6 @@
 {
-    "name": "EM.Exceptions",
-    "rootNamespace": "EM.Exceptions",
+    "name": "E314.Exceptions",
+    "rootNamespace": "E314.Exceptions",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
