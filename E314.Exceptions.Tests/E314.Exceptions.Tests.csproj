@@ -17,22 +17,22 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Include="..\E314.Exceptions.Upm\Packages\com.e314.exceptions\Tests\ArgExceptionTests.cs">
+      <Compile Include="..\UPM\Tests\ArgExceptionTests.cs">
         <Link>Tests\ArgExceptionTests.cs</Link>
       </Compile>
-      <Compile Include="..\E314.Exceptions.Upm\Packages\com.e314.exceptions\Tests\ArgNullExceptionTests.cs">
+      <Compile Include="..\UPM\Tests\ArgNullExceptionTests.cs">
         <Link>Tests\ArgNullExceptionTests.cs</Link>
       </Compile>
-      <Compile Include="..\E314.Exceptions.Upm\Packages\com.e314.exceptions\Tests\ArgOutOfRangeExceptionTests.cs">
+      <Compile Include="..\UPM\Tests\ArgOutOfRangeExceptionTests.cs">
         <Link>Tests\ArgOutOfRangeExceptionTests.cs</Link>
       </Compile>
-      <Compile Include="..\E314.Exceptions.Upm\Packages\com.e314.exceptions\Tests\DetailedExceptionTests.cs">
+      <Compile Include="..\UPM\Tests\DetailedExceptionTests.cs">
         <Link>Tests\DetailedExceptionTests.cs</Link>
       </Compile>
-      <Compile Include="..\E314.Exceptions.Upm\Packages\com.e314.exceptions\Tests\InvOpExceptionTests.cs">
+      <Compile Include="..\UPM\Tests\InvOpExceptionTests.cs">
         <Link>Tests\InvOpExceptionTests.cs</Link>
       </Compile>
-      <Compile Include="..\E314.Exceptions.Upm\Packages\com.e314.exceptions\Tests\ObjDisposedExceptionTests.cs">
+      <Compile Include="..\UPM\Tests\ObjDisposedExceptionTests.cs">
         <Link>Tests\ObjDisposedExceptionTests.cs</Link>
       </Compile>
     </ItemGroup>

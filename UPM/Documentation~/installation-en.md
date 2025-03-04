@@ -17,7 +17,7 @@
 ## Unity Package Manager. Git URL
 
 ```ps1
-https://github.com/epishev-m/e314-exceptions.git?path=E314.Exceptions.Upm/Packages/com.e314.exceptions/#release/1.1.2
+https://github.com/epishev-m/e314-exceptions.git?path=UPM/#release/1.1.2
 ```
 
 1. Open Window → Package Manager.

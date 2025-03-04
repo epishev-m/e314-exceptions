@@ -23,27 +23,27 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <None Include="..\E314.Exceptions.Upm\Packages\com.e314.exceptions\README.md" Pack="true" PackagePath="\" />
+        <None Include="..\UPM\README.md" Pack="true" PackagePath="\" />
         <None Include="..\LICENSE" Pack="true" PackagePath="\" />
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Include="..\E314.Exceptions.Upm\Packages\com.e314.exceptions\Runtime\ArgException.cs">
+      <Compile Include="..\UPM\Runtime\ArgException.cs">
         <Link>Runtime\ArgException.cs</Link>
       </Compile>
-      <Compile Include="..\E314.Exceptions.Upm\Packages\com.e314.exceptions\Runtime\ArgNullException.cs">
+      <Compile Include="..\UPM\Runtime\ArgNullException.cs">
         <Link>Runtime\ArgNullException.cs</Link>
       </Compile>
-      <Compile Include="..\E314.Exceptions.Upm\Packages\com.e314.exceptions\Runtime\ArgOutOfRangeException.cs">
+      <Compile Include="..\UPM\Runtime\ArgOutOfRangeException.cs">
         <Link>Runtime\ArgOutOfRangeException.cs</Link>
       </Compile>
-      <Compile Include="..\E314.Exceptions.Upm\Packages\com.e314.exceptions\Runtime\DetailedException.cs">
+      <Compile Include="..\UPM\Runtime\DetailedException.cs">
         <Link>Runtime\DetailedException.cs</Link>
       </Compile>
-      <Compile Include="..\E314.Exceptions.Upm\Packages\com.e314.exceptions\Runtime\InvOpException.cs">
+      <Compile Include="..\UPM\Runtime\InvOpException.cs">
         <Link>Runtime\InvOpException.cs</Link>
       </Compile>
-      <Compile Include="..\E314.Exceptions.Upm\Packages\com.e314.exceptions\Runtime\ObjDisposedException.cs">
+      <Compile Include="..\UPM\Runtime\ObjDisposedException.cs">
         <Link>Runtime\ObjDisposedException.cs</Link>
       </Compile>
     </ItemGroup>
