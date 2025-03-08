@@ -4,10 +4,10 @@ The `E314.Exceptions` module provides enhanced exception classes that improve st
 
 ## Installation
 
-- [Installation - RU](E314.Exceptions.Upm/Packages/com.e314.exceptions/Documentation~/installation-ru.md)
-- [Installation - EN](E314.Exceptions.Upm/Packages/com.e314.exceptions/Documentation~/installation-en.md)
+- [Installation - RU](UPM/Documentation~/installation-ru.md)
+- [Installation - EN](UPM/Documentation~/installation-en.md)
 
 ## Instructions
 
-- [Instructions - RU](E314.Exceptions.Upm/Packages/com.e314.exceptions/Documentation~/instructions-ru.md)
-- [Instructions - EN](E314.Exceptions.Upm/Packages/com.e314.exceptions/Documentation~/instructions-en.md)
+- [Instructions - RU](UPM/Documentation~/instructions-ru.md)
+- [Instructions - EN](UPM/Documentation~/instructions-en.md)
