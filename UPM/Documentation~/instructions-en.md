@@ -2,7 +2,7 @@
 
 ## Description
 
-The `E314.Exceptions` module provides enhanced exception classes that improve standard error handling mechanisms in .NET. These exceptions include additional data such as a unique error code (`ErrorCode`), extra data (`ErrorData`), the file name, method name, and line number where the exception occurred. This makes debugging and logging more informative.
+The `E314.Exceptions` module provides enhanced exception classes that improve standard error handling mechanisms in .NET. These exceptions include additional data such as a unique error code (`ErrorCode`), extra data (`ErrorData`). This makes debugging and logging more informative.
 
 ## Content tree
 
@@ -23,7 +23,6 @@ The `E314.Exceptions` module provides enhanced exception classes that improve st
 
 - **Informativeness**: Exceptions contain more data, simplifying problem diagnosis.
 - **Flexibility**: Support for additional data via the `ErrorData` property.
-- **Automatic Tracing**: Attributes `[CallerFilePath]`, `[CallerMemberName]`, and `[CallerLineNumber]` automatically add information about where the error occurred.
 - **Serialization**: Support for serialization through the `SerializationInfo` constructor.
 
 ## When to Use the Module?
@@ -31,7 +30,6 @@ The `E314.Exceptions` module provides enhanced exception classes that improve st
 Use the `E314.Exceptions` module if:
 
 - You want to add more context to errors (e.g., a unique error code or additional data).
-- You need to automatically track the location of the error (file, method, line).
 - You want to simplify logging and problem diagnostics.
 - You need specialized exceptions for typical scenarios (e.g., argument validation, out-of-range values).
 
@@ -152,7 +150,6 @@ public void ProcessOrder(Order order)
 When to use:
 
 - If you want to get a full error description for logging.
-- If you need to automatically include the location of the error (file, method, line).
 
 ``` csharp
 try
@@ -166,10 +163,7 @@ catch (DetailedException ex)
     Logger.LogError(
         message: ex.Message,
         errorCode: ex.ErrorCode,
-        errorData: ex.ErrorData,
-        fileName: ex.FileName,
-        methodName: ex.MethodName,
-        lineNumber: ex.LineNumber);
+        errorData: ex.ErrorData);
 }
 ```
 
@@ -179,9 +173,7 @@ catch (DetailedException ex)
   - Each error type should have a unique code (ErrorCode) to make it easily identifiable during logging or debugging.
 - Add context via ErrorData:
   - Pass additional data through the ErrorData property. This could be an object containing metadata, timestamps, or other useful details.
-- Automatic error location tracking:
-  - Use attributes `[CallerFilePath]`, `[CallerMemberName]`, and `[CallerLineNumber]` to automatically capture where the error occurred.
 - Specialized exceptions:
   - Use classes like `ArgNullException`, `ArgOutOfRangeException`, and `InvOpException` for common scenarios. This makes the code more readable and understandable.
 - Logging:
-  - Always log errors using all available data (`Message`, `ErrorCode`, `ErrorData`, `FileName`, `MethodName`, `LineNumber`).
+  - Always log errors using all available data (`Message`, `ErrorCode`, `ErrorData`).

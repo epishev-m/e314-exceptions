@@ -18,23 +18,14 @@ public class ObjDisposedException : DetailedException
 	/// <param name="message">The error message that explains the reason for the exception. Default is "The object has been disposed and cannot be used.".</param>
 	/// <param name="errorCode">A unique error code associated with the exception. Default is "OBJ_DISPOSED".</param>
 	/// <param name="errorData">Additional data related to the error. Default is null.</param>
-	/// <param name="fileName">The full path of the source file that contains the caller. Automatically populated by the runtime.</param>
-	/// <param name="methodName">The name of the method or property that invoked the exception. Automatically populated by the runtime.</param>
-	/// <param name="lineNumber">The line number in the source file at which the exception was thrown. Automatically populated by the runtime.</param>
 	public ObjDisposedException(
 		string message = "The object has been disposed and cannot be used.",
 		string errorCode = "OBJ_DISPOSED",
-		object errorData = null,
-		[CallerFilePath] string fileName = "",
-		[CallerMemberName] string methodName = "",
-		[CallerLineNumber] int lineNumber = 0)
+		object errorData = null)
 		: base(
 			message,
 			errorCode,
-			errorData,
-			fileName,
-			methodName,
-			lineNumber)
+			errorData)
 	{
 	}
 

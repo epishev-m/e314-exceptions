@@ -1,5 +1,4 @@
 using System;
-using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using System.Text;
 
@@ -23,43 +22,19 @@ public class DetailedException : Exception
 	public object ErrorData { get; }
 
 	/// <summary>
-	/// The name of the file from which the exception was thrown.
-	/// </summary>
-	public string FileName { get; }
-
-	/// <summary>
-	/// The name of the method from which the exception was thrown.
-	/// </summary>
-	public string MethodName { get; }
-
-	/// <summary>
-	/// The line number from which the exception was thrown.
-	/// </summary>
-	public int LineNumber { get; }
-
-	/// <summary>
 	/// Initializes a new instance of the <see cref="DetailedException"/> class.
 	/// </summary>
 	/// <param name="message">The error message.</param>
 	/// <param name="errorCode">The error code.</param>
 	/// <param name="errorData">Additional data related to the error (optional).</param>
-	/// <param name="fileName">The name of the file from which the exception was thrown (automatically populated).</param>
-	/// <param name="methodName">The name of the method from which the exception was thrown (automatically populated).</param>
-	/// <param name="lineNumber">The line number from which the exception was thrown (automatically populated).</param>
 	public DetailedException(
 		string message,
 		string errorCode = null,
-		object errorData = null,
-		[CallerFilePath] string fileName = "",
-		[CallerMemberName] string methodName = "",
-		[CallerLineNumber] int lineNumber = 0)
+		object errorData = null)
 		: base(message)
 	{
 		ErrorCode = errorCode;
 		ErrorData = errorData;
-		FileName = fileName;
-		MethodName = methodName;
-		LineNumber = lineNumber;
 	}
 
 	/// <summary>
@@ -69,24 +44,15 @@ public class DetailedException : Exception
 	/// <param name="innerException">The inner exception.</param>
 	/// <param name="errorCode">The error code.</param>
 	/// <param name="errorData">Additional data related to the error (optional).</param>
-	/// <param name="fileName">The name of the file from which the exception was thrown (automatically populated).</param>
-	/// <param name="methodName">The name of the method from which the exception was thrown (automatically populated).</param>
-	/// <param name="lineNumber">The line number from which the exception was thrown (automatically populated).</param>
 	public DetailedException(
 		string message,
 		Exception innerException,
 		string errorCode = null,
-		object errorData = null,
-		[CallerFilePath] string fileName = "",
-		[CallerMemberName] string methodName = "",
-		[CallerLineNumber] int lineNumber = 0)
+		object errorData = null)
 		: base(message, innerException)
 	{
 		ErrorCode = errorCode;
 		ErrorData = errorData;
-		FileName = fileName;
-		MethodName = methodName;
-		LineNumber = lineNumber;
 	}
 
 	/// <summary>
@@ -97,9 +63,6 @@ public class DetailedException : Exception
 		base.GetObjectData(info, context);
 		info.AddValue(nameof(ErrorCode), ErrorCode);
 		info.AddValue(nameof(ErrorData), ErrorData);
-		info.AddValue(nameof(FileName), FileName);
-		info.AddValue(nameof(MethodName), MethodName);
-		info.AddValue(nameof(LineNumber), LineNumber);
 	}
 
 	/// <summary>
@@ -110,9 +73,6 @@ public class DetailedException : Exception
 		return new StringBuilder($"DetailedException: {Message}")
 			.AppendLine($"\nError Code: {ErrorCode ?? "N/A"}")
 			.AppendLine($"\nError Data: {ErrorData ?? "N/A"}")
-			.AppendLine($"\nFile: {FileName ?? "N/A"}")
-			.AppendLine($"\nMethod: {MethodName ?? "N/A"}")
-			.AppendLine($"\nLine: {LineNumber}")
 			.AppendLine($"\nStack Trace: {StackTrace ?? "N/A"}")
 			.ToString();
 	}
@@ -127,9 +87,6 @@ public class DetailedException : Exception
 	{
 		ErrorCode = info.GetString(nameof(ErrorCode));
 		ErrorData = info.GetValue(nameof(ErrorData), typeof(object));
-		FileName = info.GetString(nameof(FileName));
-		MethodName = info.GetString(nameof(MethodName));
-		LineNumber = info.GetInt32(nameof(LineNumber));
 	}
 }
 
